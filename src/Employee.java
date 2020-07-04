@@ -27,24 +27,68 @@
  *    of type Employee, and then display the data.
  */
 
+import java.util.Scanner;
+
 public class Employee {
+	/*
+	 * Here I will declare my global variables for the application and/or needed items for the constructors.
+	 */
+	private String firstName, lastName, address;
+	private int id, zipCode;
+	private Date hiredDate;
 
 	public static void main(String[] args) {
 		headerMsg();
+		
+		System.out.println("\nLet's begin by entering the employees names: ");
+		
+		Scanner input = new Scanner(System.in);
+		
+		
+		
+		
+		/*
+		 * Put the getters/setters methods here for id, firstName, lastName, dateHired
+		 */
+		
+		
+		/*
+		 * Put the toString() method here put the getter/setter methods for address here(?)
+		 * based on OH notes.
+		 */
+		
+	}
+	
+	/*
+	 * Setting up the default constructor for the employee demographic information. This is what is supposed
+	 * to populate if the user doesn't input anything when prompted.
+	 */
+	public EmployeeDemographc() {
+		id = 0123;
+		firstName = "Sailor";
+		lastName = "Moon";
+		address = "123 Anime Street, Moon City, CA, 94118";
+		hiredDate = new Date(03, 21, 1990);
+	}
+
+	/*
+	 * Using reading as a reference to properly use a date constructor using containment
+	 */
+	public class Date{
 		
 	}
 
 	private static void headerMsg() {
 		System.out.println("\n");
-		System.out.println("+---------------------------------------------------------------------------+");
-		System.out.println("|                              Welcome User,                                |");
-		System.out.println("|         This application will display a list of employees based on the    |");
-		System.out.println("|    the information you will provide. Please enter some basic demographic  |");
-		System.out.println("|      information of several indivduals in order to use this application.  |");
-		System.out.println("|    You may start first by entering an employees: first name, last name,   |");
-		System.out.println("|      address, and date of when they were hired. Do make sure that the     |");
-		System.out.println("|    information that you enter is entered correctly! Let's start!          |");
-		System.out.println("+---------------------------------------------------------------------------+");
+		System.out.println("+------------------------------------------------------------------------------+");
+		System.out.println("|                                   Welcome User,                              |");
+		System.out.println("|         This application will display a list of employees based on the       |");
+		System.out.println("|    the information you will provide. Please enter some basic demographic     |");
+		System.out.println("|      information of several indivduals in order to use this application.     |");
+		System.out.println("|   You may start first by entering the employees: first names, last names,    |");
+		System.out.println("|        addresses, and the dates they were hired. Do make sure that the       |");
+		System.out.println("|       information that you enter is entered correctly! Let's start!          |");
+		System.out.println("+------------------------------------------------------------------------------+");
 	}
 	
 	
