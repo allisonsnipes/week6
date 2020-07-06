@@ -29,55 +29,103 @@
 
 import java.util.Scanner;
 
-public class Employee {
-	/*
-	 * Here I will declare my global variables for the application and/or needed items for the constructors.
-	 */
-	private String firstName, lastName, address;
-	private int id, zipCode;
-	private Date hiredDate;
+/*
+ * Here I will declare my global variables for the application and/or needed items for the constructors.
+ */
 
-	public static void main(String[] args) {
-		headerMsg();
-		
-		System.out.println("\nLet's begin by entering the employees names: ");
-		
-		Scanner input = new Scanner(System.in);
-		
-		
-		
-		
-		/*
-		 * Put the getters/setters methods here for id, firstName, lastName, dateHired
-		 */
-		
-		
-		/*
-		 * Put the toString() method here put the getter/setter methods for address here(?)
-		 * based on OH notes.
-		 */
-		
+class DemographicCriteria {
+	private String firstName, lastName;
+//	private int id, zipCode;
+//	private Date hiredDate;
+	//address
+	
+	/*
+	 * Put the getters/setters methods here for id, firstName, lastName, dateHired
+	 */
+	public int getEmployeeId() {
+		return id;
+	}
+	
+	public void setId(int newId) {
+		this.id = newId;
+	}
+	
+	public int getEmpFirst() {
+		return firstName;
+	}
+	
+	public void setEmpFirst(String newFirst) {
+		this.firstName = newFirst;
+	}
+	
+	public int getEmpLast() {
+		return lastName;
+	}
+	
+	public void setEmpLast(String newLast) {
+		this.lastName = newLast;
+	}
+	
+	public int getHiredDate() {
+		return hiredDate;
+	}
+	
+	public void setEmpLast(String newHired) {
+		this.hiredDate = newHired;
+	}
+	
+	
+	/*
+	 * Put the toString() method here put the getter/setter methods for address here
+	 * based on OH notes.
+	 */
+	
+	/*
+	 * Here is where the Employee default constructor is parameterized in preparation of 
+	 * receiving the employees' demographic information. 
+	 */
+	public void Employee (String fn, String ln, String addy, Date gh, int ePers) {
+		id = ePers;
+		firstName = fn;
+		lastName = ln;
+		address = addy;
+		hiredDate = gh;
 	}
 	
 	/*
-	 * Setting up the default constructor for the employee demographic information. This is what is supposed
-	 * to populate if the user doesn't input anything when prompted.
+	 * Setting up the default constructor for the employee demographic information. This is 
+	 * what is supposed to populate as default if the user doesn't input anything when 
+	 * prompted.
 	 */
-	public EmployeeDemographc() {
+	public void Employee() {
 		id = 0123;
 		firstName = "Sailor";
 		lastName = "Moon";
 		address = "123 Anime Street, Moon City, CA, 94118";
 		hiredDate = new Date(03, 21, 1990);
-	}
+	}	
+}
+	
+/*
+ * Using reading as a reference to properly use a date constructor using containment
+*/
+class Date {
 
-	/*
-	 * Using reading as a reference to properly use a date constructor using containment
-	 */
-	public class Date{
+}
+
+public class Employee {
+	public static void main(String[] args) {
+	
+	
+		headerMsg();
+	
+		System.out.println("\nLet's begin by entering the employees names: ");
+	
+		Scanner input = new Scanner(System.in);
+		int userChoice = input.nextline();
+	
 		
 	}
-
 	private static void headerMsg() {
 		System.out.println("\n");
 		System.out.println("+------------------------------------------------------------------------------+");
@@ -90,6 +138,4 @@ public class Employee {
 		System.out.println("|       information that you enter is entered correctly! Let's start!          |");
 		System.out.println("+------------------------------------------------------------------------------+");
 	}
-	
-	
-}
+}	
