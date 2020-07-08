@@ -36,6 +36,7 @@
  * 
  */
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class Address {
@@ -210,6 +211,11 @@ class EmployeeData {
 		System.out.println("Address: " + residence.toString());
 		System.out.println("Hired date: " + hired.toString());
 	}
+
+	public void display() {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
 public class Employee {
@@ -220,9 +226,7 @@ public class Employee {
 		System.out.println("\nLet's begin by entering the number of employees that you want to enter: ");
 		Scanner input = new Scanner(System.in);
 		int userNum = input.nextInt();
-		ArrayList<person> informationGathered = new ArrayList<person>;
-		
-		EmployeeData[] informationGathered = new EmployeeData[userNum];
+		ArrayList<EmployeeData> informationGathered = new ArrayList<EmployeeData>();
 		
 		while(true) {
 			
