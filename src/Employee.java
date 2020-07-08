@@ -27,105 +27,284 @@
  *    of type Employee, and then display the data.
  */
 
-import java.util.Scanner;
-
 /*
- * Here I will declare my global variables for the application and/or needed items for the constructors.
+ * Here I will:
+ * 1. Declare my global variables and various classes for the application and/or needed items for the constructors.
+ * 2. Make all of my getter and setter methods for my classes under each respective class
+ * 3. Put the toString() method here put the getter/setter methods for address here based on OH notes for ther date.
+ * 4. The Employee default constructor is parameterized in preparation of receiving the employees' demographic information. 
+ * 
  */
 
-class DemographicCriteria {
+import java.util.Scanner;
+
+class Address {
+	private String street;
+	private String city;
+	private String state;
+	private String zipCode;
+	
+	public String getEmpStreet() {
+		return street;
+	}
+	
+	public void setEmpStreet(String street) {
+		this.street = street;
+	}
+	
+	public String getEmpCity() {
+		return city;
+	}
+	
+	public void setEmpCity(String city) {
+		this.city = city;
+	}
+	
+	public String getEmpState() {
+		return state;
+	}
+	
+	public void setEmpState(String state) {
+		this.state = state;
+	}
+	
+	public String getEmpZip() {
+		return zipCode;
+	}
+	
+	public void setEmpZip(String zipCode) {
+		this.zipCode = zipCode;
+	}
+	
+	public Address (String street, String city, String state, String zipCode) {
+		super();
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zipCode = zipCode;
+	}
+	
+	public String toString() {
+		return  street + "," + city + "," + state + " " + zipCode;
+	}
+	
+}
+
+class Names {
 	private String firstName, lastName;
-//	private int id, zipCode;
-//	private Date hiredDate;
-	//address
 	
-	/*
-	 * Put the getters/setters methods here for id, firstName, lastName, dateHired
-	 */
-	public int getEmployeeId() {
-		return id;
-	}
-	
-	public void setId(int newId) {
-		this.id = newId;
-	}
-	
-	public int getEmpFirst() {
+	public String getEmpFirst() {
 		return firstName;
 	}
 	
-	public void setEmpFirst(String newFirst) {
-		this.firstName = newFirst;
+	public void setEmpFirst(String firstName) {
+		this.firstName = firstName;
 	}
 	
-	public int getEmpLast() {
+	public String getEmpLast() {
 		return lastName;
 	}
 	
-	public void setEmpLast(String newLast) {
-		this.lastName = newLast;
+	public void setEmpLast(String lastName) {
+		this.lastName = lastName;
 	}
 	
-	public int getHiredDate() {
-		return hiredDate;
+	public Names (String firstName, String lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
-	
-	public void setEmpLast(String newHired) {
-		this.hiredDate = newHired;
-	}
-	
-	
-	/*
-	 * Put the toString() method here put the getter/setter methods for address here
-	 * based on OH notes.
-	 */
-	
-	/*
-	 * Here is where the Employee default constructor is parameterized in preparation of 
-	 * receiving the employees' demographic information. 
-	 */
-	public void Employee (String fn, String ln, String addy, Date gh, int ePers) {
-		id = ePers;
-		firstName = fn;
-		lastName = ln;
-		address = addy;
-		hiredDate = gh;
-	}
-	
-	/*
-	 * Setting up the default constructor for the employee demographic information. This is 
-	 * what is supposed to populate as default if the user doesn't input anything when 
-	 * prompted.
-	 */
-	public void Employee() {
-		id = 0123;
-		firstName = "Sailor";
-		lastName = "Moon";
-		address = "123 Anime Street, Moon City, CA, 94118";
-		hiredDate = new Date(03, 21, 1990);
-	}	
 }
 	
 /*
  * Using reading as a reference to properly use a date constructor using containment
 */
 class Date {
+	private int day, month, year;
+	
+	public int getDay() {
+		return day;
+	}
+	
+	public void setDay(int day) {
+		this.day = day;
+	}
+	
+	public int getMonth() {
+		return month;
+	}
+	
+	public void setMonth(int month) {
+		this.day = month;
+	}
+	
+	public int getYear() {
+		return year;
+	}
+	
+	public void setYear(int year) {
+		this.day = year;
+	}
 
+	public Date(int day, int month, int year) {
+		super();
+		this.day = day;
+		this.month = month;
+		this.year = year;
+	}
+	
+
+	public String toString() {
+		return  day + " " + month + " " + year;
+	}
+	
+}
+
+class EmployeeData {
+	private int id;
+	private Names name;
+	private Address residence;
+	private Date hired;
+
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public Names getNames() {
+		return name;
+	}
+	
+	public void setNames (Names name) {
+		this.name = name;
+	}
+	
+	public Address getPlace() {
+		return residence;
+	}
+	
+	public void setPlace(Address residence) {
+		this.residence = residence;
+	}
+	
+	public Date getHired() {
+		return hired;
+	}
+	
+	public void setHired(Date hired) {
+		this.hired = hired;
+	}
+	
+	EmployeeData (int id, Names name, Address residence, Date hired) {
+		setId(id);
+		setNames(name);
+		setPlace(residence);
+		setHired(hired);
+	}
+	
+	public void showIt() {
+		System.out.println("Employee Id: " + id);
+		System.out.println("Name: " + name.toString());
+		System.out.println("Address: " + residence.toString());
+		System.out.println("Hired date: " + hired.toString());
+	}
 }
 
 public class Employee {
 	public static void main(String[] args) {
-	
-	
+
 		headerMsg();
 	
-		System.out.println("\nLet's begin by entering the employees names: ");
-	
+		System.out.println("\nLet's begin by entering the number of employees that you want to enter: ");
 		Scanner input = new Scanner(System.in);
-		int userChoice = input.nextline();
-	
+		int userNum = input.nextInt();
+		ArrayList<person> informationGathered = new ArrayList<person>;
 		
+		EmployeeData[] informationGathered = new EmployeeData[userNum];
+		
+		while(true) {
+			
+			//get the name and id	
+			System.out.println("Enter the employee's id: \n");
+			int id = input.nextInt();
+			if  (id <= 0) {
+				System.out.print("Please enter a number greater than 0");
+				break;
+			}
+			
+			System.out.println("Enter the employee's first name: \n");
+			String firstName = input.nextLine();
+			
+			System.out.println("Enter the employee's last name: \n");
+			String lastName = input.nextLine();
+			
+			Names name = new Names(firstName, lastName);
+			
+			System.out.println("Enter the employee's street residence: \n");
+			String street = input.nextLine();
+			
+			System.out.println("Enter the employee's city residence: \n");
+			String city = input.nextLine();
+			
+			System.out.println("Enter the employee's state of residence: \n");
+			String state = input.nextLine();
+			if  (state.length() != 2) {
+				System.out.print("Please enter a two letter state.");
+				break;
+			}
+			
+			System.out.println("Enter the employee's zipcode: \n");
+			String zipCode = input.nextLine();
+			if  (zipCode.length() != 5) {
+				System.out.print("Please enter a proper zipcode.\n");
+				break;
+				
+			}
+			
+			Address residence = new Address (street, city, state, zipCode);
+			
+			//get the hire date
+			int day = 0;
+			int month = 0;
+			int year = 0;
+			
+			while (day <=0 || day > 31) {
+				System.out.println("Please enter a proper numerical calendar date.\n");
+				break;
+			}
+			
+			while (month <=0 || month > 12) {
+				System.out.println("Please enter a proper numerical calendar month.\n");
+				break;
+			}
+			
+			while (year > 1900 || year < 2020) {
+				System.out.println("Please enter a proper year in which the employee was hired.\n");
+				break;
+			}
+			
+			Date hiredInfo = new Date(day, month, year);
+			
+			//put all the information together to create an object
+			EmployeeData person = new EmployeeData(id, name, residence, hiredInfo);  
+			
+			//set up the actual array
+			informationGathered.add(person);
+			System.out.println();
+			
+			//display all of the array items
+			for (EmployeeData e: informationGathered) {
+				e.display();
+				System.out.println("");
+			}
+			
+			
+		}
+			
 	}
+	
 	private static void headerMsg() {
 		System.out.println("\n");
 		System.out.println("+------------------------------------------------------------------------------+");
